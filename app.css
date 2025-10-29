@@ -1,0 +1,185 @@
+:root{
+  --bg:#f5f6fa;
+  --panel:#ffffff; /* 복구 */
+  --text:#1f2229;
+  --muted:#717888;
+  --border:#d8dbe3;
+  --chip:#eef1f8;
+  --shadow:0 4px 14px rgba(0,0,0,.05);
+  --bubble:#ffffff;
+  --bubble-border:#dde0e8;
+  --brandGlow:rgba(72,115,199,.28);
+
+  --font-sans:'Pretendard',system-ui,-apple-system,Segoe UI,Roboto,'Noto Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+
+  --card-h: 145px;
+  --card-footer-h: 26px;
+}
+:root[data-theme="dark"]{
+  --bg:#171a21;
+  --panel:#1e2129;
+  --text:#dce1eb;
+  --muted:#9ca3b5;
+  --border:#2a2e38;
+  --chip:#232730;
+  --shadow:0 6px 20px rgba(0,0,0,.45);
+  --bubble:#1e2129;
+  --bubble-border:#2a2e38;
+  --brandGlow:rgba(120,155,245,.25);
+}
+
+/* Pretendard */
+@font-face{font-family:'Pretendard';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Thin.woff2') format('woff2');font-weight:100;font-display:swap}
+@font-face{font-family:'Pretendard';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-ExtraLight.woff2') format('woff2');font-weight:200;font-display:swap}
+@font-face{font-family:'Pretendard';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Light.woff2') format('woff2');font-weight:300;font-display:swap}
+@font-face{font-family:'Pretendard';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Regular.woff2') format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'Pretendard';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Medium.woff2') format('woff2');font-weight:500;font-display:swap}
+@font-face{font-family:'Pretendard';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-SemiBold.woff2') format('woff2');font-weight:600;font-display:swap}
+@font-face{font-family:'Pretendard';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Bold.woff2') format('woff2');font-weight:700;font-display:swap}
+@font-face{font-family:'Pretendard';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-ExtraBold.woff2') format('woff2');font-weight:800;font-display:swap}
+@font-face{font-family:'Pretendard';src:url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Black.woff2') format('woff2');font-weight:900;font-display:swap}
+
+@media (prefers-color-scheme: dark){:root{color-scheme:dark}}
+*{box-sizing:border-box}
+html,body{height:100%}
+
+body{
+  margin:0;background:var(--bg);color:var(--text);
+  font-family:var(--font-sans);font-size:15px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+  background-image:
+    repeating-linear-gradient(90deg,color-mix(in oklab,var(--panel) 40%,transparent) 0 1px,transparent 1px 16px),
+    repeating-linear-gradient(0deg,color-mix(in oklab,var(--panel) 40%,transparent) 0 1px,transparent 1px 16px);
+  background-size:20px 20px;background-attachment:fixed;
+}
+input,select,button,textarea{font:inherit}
+
+/* Header */
+header{
+  position:sticky;top:0;z-index:10;backdrop-filter:saturate(180%) blur(6px);
+  background:color-mix(in oklab,var(--bg) 90%,transparent);
+  border-bottom:1px solid var(--border);
+}
+.wrap{max-width:1100px;margin:0 auto;padding:20px}
+
+/* Brand */
+.brand{display:flex;align-items:center;gap:12px;font-weight:800;font-size:20px}
+.brand .logo{width:30px;height:30px;image-rendering:pixelated;filter:drop-shadow(0 0 10px var(--brandGlow));animation:wobble 2.2s ease-in-out infinite}
+
+/* Toolbar */
+.toolbar{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px; gap: 6px;  margin-top: 6px;}
+.toolbar>*{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding: 12px 12px;box-shadow:var(--shadow)}
+.toolbar .row{display:flex;gap:8px;align-items:center;flex:1;}
+.toolbar input[type="text"],.toolbar select{background:transparent;border:none;outline:none;color:var(--text);min-width:160px}
+#world{margin-left:auto }
+
+/* Theme switch */
+.switch{display:inline-flex;align-items:center;gap:8px;cursor:pointer;user-select:none}
+.switch input{display:none}
+.switch .track{width:48px;height:28px;background:var(--panel);border:1px solid var(--border);border-radius:999px;position:relative;transition:.2s}
+.switch .thumb{position:absolute;top:50%;left:3px;translate:0 -50%;width:22px;height:22px;border-radius:50%;background:var(--text);transition:.2s}
+.switch input:checked + .track .thumb{left:23px}
+
+/* Main */
+main{padding:8px 0 40px}
+
+main.wrap, .cards {
+  position: relative;
+  z-index: 2;
+}
+/* 카드 위로 띄우기: 헤더(z-index:10)보다 크게 */
+.card:hover{
+  transform: translateY(-2px);
+  z-index: 20;
+}
+
+
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.card{
+  background:var(--bubble);border:1px solid var(--bubble-border);border-radius:16px;padding:14px;box-shadow:var(--shadow);
+  display:flex;flex-direction:column;gap:10px;min-height:120px;position:relative;transition:transform .08s ease;
+  height:var(--card-h);padding-bottom:calc(var(--card-footer-h) + 12px);
+}
+
+
+/* Card header */
+.head{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.who{
+      flex: 0 1 auto;  /* 공간 적당히만 사용 */
+  min-width: 0;    /* ellipsis 동작 필수 */
+  text-align: left; /* 가운데 정렬 방지 */
+  
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+  font-weight:700;font-size:15px;color:var(--text);cursor:pointer;position:relative;background:none;border:none;padding:0;margin:0;
+}
+.head .who:hover{overflow:visible} /* ellipsis 유지 + 툴팁은 보이게 */
+
+.head .who::after{
+ z-index: 999; /* 필요하면 조정 가능 */
+  content:attr(data-tip);
+  position:absolute;bottom:100%;left:50%;transform:translate(-50%, -6px);
+  background:var(--panel);color:var(--text);font-size:12px;font-weight:600;
+  padding:6px 10px;border-radius:8px;white-space:nowrap;border:1px solid var(--border);box-shadow:var(--shadow);
+  opacity:0;pointer-events:none;z-index:2000;transition:opacity .15s ease-out, transform .15s ease-out;
+}
+.head .who:hover::after{opacity:1;transform:translate(-50%,-12px)}
+
+.chip{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;padding:2px 8px;border-radius:999px;background:var(--chip);border:1px solid var(--border);color:var(--muted)}
+.chip img{width:14px;height:14px;image-rendering:pixelated}
+
+/* Card body */
+.msg{
+  white-space:pre-wrap;word-break:break-word;font-weight:500;font-size:15px;
+  display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;
+}
+
+/* Card footer */
+.meta{
+  position:absolute;left:14px;right:14px;bottom:12px;height:var(--card-footer-h);
+  display:flex;align-items:center;justify-content:space-between;gap:8px;padding:0;
+}
+.time{font-variant-numeric:tabular-nums;color:var(--muted);font-size:12.5px;line-height:1}
+.loc .tag{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;line-height:1;padding:4px 8px;color:var(--muted)}
+
+/* Buttons */
+.controls{display:flex;align-items:center;gap:10px}
+.btn{
+  appearance:none;border:2px solid var(--border);border-radius:12px;padding:5px 12px;background:transparent;color:var(--text);
+  cursor:pointer;font-weight:700;transition:.15s;font-size:14px
+}
+.btn:active{transform:translateY(1px)}
+.btn.buy{border-color:#ff4d4d;color:#ff4d4d}.btn.buy.active{background:#ff4d4d;color:#fff}
+.btn.sell{border-color:#4d8aff;color:#4d8aff}.btn.sell.active{background:#4d8aff;color:#fff}
+.btn.boss{border-color:#ff4dde;color:#ff4dde}.btn.boss.active{background:#ff4dde;color:#fff}
+.btn.cash{border-color:#ffbb00;color:#ffbb00}.btn.cash.active{background:#ffbb00;color:#fff}
+
+/* Status & misc */
+.status{color:var(--muted);font-size:12px;margin:12px 0}
+.divider{height:1px;background:var(--border);margin:10px 0}
+.trade{outline:2px dashed color-mix(in oklab,var(--accent) 50%,transparent);outline-offset:4px}
+.warning{background:linear-gradient(0deg,color-mix(in oklab,#ff0000 18%,transparent),transparent 60%),var(--bubble)}
+.hl{background:#fff87a;padding:0 .15em;border-radius:.25rem}
+
+/* ---------- Pagination ---------- */
+.pager{
+  display:flex; flex-wrap:wrap; gap:8px;
+  align-items:center; justify-content:center;
+  margin: 20px 0 28px; /* ↑ 위쪽 20px, 아래쪽 28px */
+}
+.pager .pbtn{
+  appearance:none; border:1px solid var(--border);
+  background:var(--panel); color:var(--text);
+  border-radius:10px; padding:6px 12px; font-size:13px; cursor:pointer;
+  box-shadow: var(--shadow);
+}
+.pager .pbtn[disabled]{ opacity:.45; cursor:not-allowed }
+.pager .pbtn.active{
+  border-color:#4d8aff; background:#4d8aff; color:#fff;
+}
+.brand {
+  cursor: pointer;
+  user-select: none;
+}
+.brand:active {
+  opacity: .8;
+}
