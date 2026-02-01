@@ -1,45 +1,25 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>메랜고확</title>
-  <link rel="stylesheet" href="app.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <title>바다 수박게임</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <div class="wrap">
-      <div class="brand" aria-label="브랜드">
-        <img class="logo" src="logo.png" alt="확성기 아이콘" />
-        <span>메랜고확</span>
-        <label class="switch" title="라이트/다크 전환">
-          <input id="themeToggle" type="checkbox" />
-          <span class="track"><span class="thumb"></span></span>
-        </label>
-      </div>
+  <div class="top">
+<div id="hud">
+  <div>Score: <span id="score">0</span></div>
+  <div>Time: <span id="time">00:00</span></div>
+</div>
 
-      <div class="toolbar">
-        <div class="row">
-          <input id="q" type="text" placeholder="메시지 검색 (키워드)" />
-          <select id="world"><option value="">지역(월드) 전체</option></select>
-        </div>
-        <div class="controls">
-          <button id="buyBtn" class="btn buy"  title="구매 관련만 보기">구매</button>
-          <button id="sellBtn" class="btn sell" title="판매 관련만 보기">판매</button>
-          <button id="bossBtn" class="btn boss" title="보스 관련만 보기">보스</button>
-          <button id="cashBtn" class="btn cash" title="캐시 관련만 보기">캐시</button>
-          <button id="resetBtn" class="btn" title="필터 초기화">초기화</button>
-        </div>
-      </div>
-    </div>
-  </header>
+    <button id="reset">Reset</button>
+  </div>
 
-  <main class="wrap">
-    <section id="list" class="cards" aria-live="polite"></section>
-    <nav id="pager" class="pager" aria-label="page"></nav>
+  <div id="game"></div>
 
-  </main>
-
-  <script src="app.js"></script>
+  <!-- Matter.js -->
+  <script src="https://cdn.jsdelivr.net/npm/matter-js@0.20.0/build/matter.min.js"></script>
+  <script src="main.js"></script>
 </body>
 </html>

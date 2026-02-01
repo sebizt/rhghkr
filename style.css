@@ -1,0 +1,65 @@
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, "Apple SD Gothic Neo", sans-serif;
+  background:#f6f7fb;
+  color:#1b1f2a;
+  overscroll-behavior: none;
+}
+
+.top{
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display:flex;
+  gap:12px;
+  align-items:center;
+  padding:12px 14px;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+.top .next{ opacity: 0.9; }
+
+button{
+  margin-left:auto;
+  padding:10px 14px;
+  border: 1px solid rgba(0,0,0,0.12);
+  border-radius: 12px;
+  background:#ffffff;
+  color:#111;
+  cursor:pointer;
+}
+
+#game{
+  height: calc(100vh - 54px);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding: 12px;
+}
+
+canvas{
+  width: min(92vw, 420px);
+  height: auto;
+  aspect-ratio: 420 / 720;
+  border-radius: 16px;
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+  touch-action: manipulation;
+}
+
+#nextPreview{
+  display:inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  border: 2px solid rgba(0,0,0,0.75);
+  vertical-align: -4px;
+  margin-left: 6px;
+  background: #ddd;
+}
