@@ -92,10 +92,10 @@ const levels = [
   { radius: 34, points: 15, density: 1.05 },
   { radius: 40, points: 21, density: 1.10 },
   { radius: 48, points: 28, density: 0.95 },
-  { radius: 58, points: 36, density: 1.15 },
-  { radius: 70, points: 45, density: 1.20 },
-  { radius: 86, points: 60, density: 1.25 },
-  { radius: 95, points: 100, density: 1.30 },
+  { radius: 58, points: 36, density: 1.05 },
+  { radius: 70, points: 45, density: 1.10 },
+  { radius: 86, points: 60, density: 1.15 },
+  { radius: 95, points: 100, density: 1.20 },
 ];
 
 // DOM
@@ -694,3 +694,4 @@ resetBtn.addEventListener("click", () => {
   currentLevel = randDropLevel();
   nextLevel = randDropLevel();
 });
+
