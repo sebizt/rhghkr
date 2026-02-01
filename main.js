@@ -85,17 +85,17 @@ function getSpriteForLevel(level) {
 // 단계 설정
 // =====================
 const levels = [
-  { radius: 14, points: 1,  density: 0.70 },
-  { radius: 18, points: 3,  density: 0.80 },
-  { radius: 23, points: 6,  density: 0.90 },
+  { radius: 14, points: 1,  density: 1.0 },
+  { radius: 18, points: 3,  density: 1.0 },
+  { radius: 23, points: 6,  density: 1.0 },
   { radius: 28, points: 10, density: 1.00 },
-  { radius: 34, points: 15, density: 1.05 },
-  { radius: 40, points: 21, density: 1.10 },
-  { radius: 48, points: 28, density: 0.95 },
-  { radius: 58, points: 36, density: 1.05 },
-  { radius: 70, points: 45, density: 1.10 },
-  { radius: 86, points: 60, density: 1.15 },
-  { radius: 95, points: 100, density: 1.20 },
+  { radius: 34, points: 15, density: 1.0 },
+  { radius: 40, points: 21, density: 1.0 },
+  { radius: 48, points: 28, density: 1.0 },
+  { radius: 58, points: 36, density: 1.0 },
+  { radius: 70, points: 45, density: 1.0 },
+  { radius: 86, points: 60, density: 1.0 },
+  { radius: 95, points: 100, density: 1.0 },
 ];
 
 // DOM
